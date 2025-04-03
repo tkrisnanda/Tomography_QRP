@@ -1,4 +1,4 @@
-This GitHub repository contains codes and data used in our article 'Experimental demonstration of enhanced quantum tomography via quantum reservoir processing' 
+This GitHub repository contains codes and data used in our article 'Experimental demonstration of enhanced quantum tomography via quantum reservoir processing'. 
 Available online: https://arxiv.org/abs/2412.11015
 
 Here are the step-by-step explanations for use
