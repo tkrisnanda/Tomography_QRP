@@ -21,7 +21,7 @@ cdim = 30  # GRAPE cavity dim
 
 # Directory for experimental data
 exp_data = f'/Users/tanjungkrisnanda/Library/CloudStorage/Dropbox/NTU Grad/Research/Python codes/nus_tomo_23/20240606_exp_learning_map_2/Data/D{D}'
-target_states = '/Users/tanjungkrisnanda/Library/CloudStorage/Dropbox/NTU Grad/Research/Python codes/nus_tomo_23/20240606_exp_learning_map_2/GRAPE_states'
+target_states = '/Users/tanjungkrisnanda/Library/CloudStorage/Dropbox/NTU Grad/Research/Python codes/nus_tomo_23/20240606_exp_learning_map_2/GRAPE_states_GH'
 
 two_pi_half = False
 
