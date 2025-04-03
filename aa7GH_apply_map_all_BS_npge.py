@@ -47,7 +47,7 @@ for kk in range(len(maplist)):
     beta = data["beta"]
 
     exp_data = '/Users/tanjungkrisnanda/Library/CloudStorage/Dropbox/NTU Grad/Research/Python codes/nus_tomo_23/20240606_exp_learning_map_2/Data/Test_cat'
-    target_states = '/Users/tanjungkrisnanda/Library/CloudStorage/Dropbox/NTU Grad/Research/Python codes/nus_tomo_23/20240606_exp_learning_map_2/GRAPE_states'
+    target_states = '/Users/tanjungkrisnanda/Library/CloudStorage/Dropbox/NTU Grad/Research/Python codes/nus_tomo_23/20240606_exp_learning_map_2/GRAPE_states_GH'
 
     qdim = 3  # GRAPE qubit dim
     cdim = 30  # GRAPE cavity dim
