@@ -29,11 +29,11 @@ dx = 0.001 # Infinitesimal for derivatives
 # Getting the K matrix, rho = K * Y + Theta
 n_para = FD**2 - 1
 Ntr = FD**2
-X_R = np.zeros([1 + n_para, Ntr], dtype=np.complex_)
+X_R = np.zeros([1 + n_para, Ntr], dtype=np.complex128)
 X_R[0, :] = np.ones([1, Ntr])
-Y_R = np.zeros([FD**2, Ntr], dtype=np.complex_)
+Y_R = np.zeros([FD**2, Ntr], dtype=np.complex128)
 for j in np.arange(0, Ntr):
-    rd1 = np.zeros([cdim, cdim], dtype=np.complex_)
+    rd1 = np.zeros([cdim, cdim], dtype=np.complex128)
     u_rand = rand_ket(FD)
     r_rand = (u_rand * u_rand.dag()).full()
     rd1[0:FD, 0:FD] = r_rand
@@ -107,7 +107,7 @@ def wrap_cost(disps):
     return cost, grad
 
 CD = np.zeros(NN)
-DIS = np.zeros([NN, n_disps], dtype=np.complex_)
+DIS = np.zeros([NN, n_disps], dtype=np.complex128)
 for vv in np.arange(0, NN):
     init_disps = np.random.normal(0, 0.5 * st, 2 * n_disps)
     init_disps[0] = init_disps[n_disps] = 0
