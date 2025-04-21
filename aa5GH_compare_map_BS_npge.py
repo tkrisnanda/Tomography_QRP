@@ -45,12 +45,12 @@ for j, d in enumerate(DD):
     plt.show()
 
 #%%with bootstrap
-d1mean = np.zeros(len(DD), dtype=np.float_)
-d1std = np.zeros(len(DD), dtype=np.float_)
+d1mean = np.zeros(len(DD), dtype=np.float128)
+d1std = np.zeros(len(DD), dtype=np.float128)
 # d2 = np.zeros(len(DD), dtype=np.float_)
 NB = 20#number of bootstraps
 for j, d in enumerate(DD):
-    d1nB = np.zeros(NB, dtype = np.float_)
+    d1nB = np.zeros(NB, dtype = np.float128)
     for nB in range(NB):
         D = d
         data_ideal = np.load("/Users/tanjungkrisnanda/Library/CloudStorage/Dropbox/NTU Grad/Research/Python codes/nus_tomo_23/20240606_exp_learning_map_2/map_ideal_D"+str(D)+".npz", 'r')
@@ -65,9 +65,9 @@ for j, d in enumerate(DD):
         # vbeta_sim = beta_sim.flatten()
 
         No_el = len(vbeta_ideal)
-        d1nB[nB] = np.sum(np.abs(vbeta_ideal - vbeta_exp))/No_el
+        d1nB[nB] = np.sum(np.abs(vbeta_ideal - vbeta_exp)**2)/No_el
     d1mean[j] = np.mean(d1nB)
-    d1std[j] = np.std(d1nB)
+    d1std[j] = np.std(d1nB) 
 
 # create_figure_cm(5,4)
 create_figure_cm(8,5.5)

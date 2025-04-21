@@ -151,7 +151,7 @@ for kk in range(len(maplist)):
         rho_tar_D = rho_tar_D / rho_tar_D.tr()  # normalise it, .unit()
         # Target observables
         Y_tar = np.zeros(nD)
-        Y_tar[: D - 1] = np.diagonal(rho_tar_D).real[:-1]  # Diagonal of rho
+        Y_tar[: D - 1] = np.diagonal(rho_tar_D.full()).real[:-1]  # Diagonal of rho
         off_diag = rho_tar_D[np.triu_indices(D, 1)]  # Upper triangle of rho
         Y_tar[D - 1 :: 2] = np.real(off_diag)
         Y_tar[D::2] = np.imag(off_diag)
@@ -161,7 +161,7 @@ for kk in range(len(maplist)):
 
     # Builds a density matrix from the vector Y
     def rho_from_Y(Y_est):
-        rho_est = np.zeros([D, D], dtype=np.complex_)
+        rho_est = np.zeros([D, D], dtype=np.complex128)
         diagonal = np.append(Y_est[: D - 1], 1 - sum(Y_est[: D - 1]))
         np.fill_diagonal(rho_est, diagonal)  # Populate diagonal of rho
 
@@ -231,7 +231,7 @@ for kk in range(len(maplist)):
             dX = XXp-Xp_exp
             # err[j, kk] = np.sum(np.abs(dX))/len(dX)#np.linalg.norm(dX)#
             # e1[nB] = np.linalg.norm(dX)
-            e1[nB] = np.sum(np.abs(dX))/len(dX)
+            e1[nB] = np.sum(np.abs(dX)**2)/len(dX)
         errmean[j, kk] = np.mean(e1)
         errstd[j, kk] = np.std(e1)
 
@@ -283,7 +283,8 @@ for i in range(len(categories)):
 # plt.title('Barplot with Specified Error Bars for Type 1 and Type 2')
 plt.xlabel('Category')
 plt.ylabel('Value')
-plt.ylim(0.035, 0.112)
+# plt.ylim(0.035, 0.112)
+plt.ylim(0.0015, 0.02)
 # plt.legend(title='Type')
 plt.savefig('fig3_D6.pdf')
 plt.show()
